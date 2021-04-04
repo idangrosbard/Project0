@@ -2,7 +2,7 @@
 #include <assert.h>
 #include <math.h>
 
-int verify_base(char c, unsigned int base) {
+int verify_base(unsigned char c, unsigned int base) {
     if ((c - '0' > base) || (c - '0' < 0)) {
         if (base > 10) {
             if ((c - 'a' > base - 10) || (c - 'a' < 0)) {
@@ -46,7 +46,7 @@ void print_dec_in_base_rec(unsigned int num, unsigned int base) {
 
 unsigned int get_dec_input(unsigned int base) {
     unsigned int num = 0;
-    char c;
+    unsigned char c;
     do {
         c = getchar();
         if ((c != '\n') && (c != EOF)) {
