@@ -2,7 +2,7 @@
 #include <assert.h>
 #include <math.h>
 
-int verify_base(char c, int base) {
+int verify_base(char c, unsigned int base) {
     if ((c - '0' > base) || (c - '0' < 0)) {
         if (base > 10) {
             if ((c - 'a' > base - 10) || (c - 'a' < 0)) {
@@ -18,15 +18,15 @@ int verify_base(char c, int base) {
     return 1;
 }
 
-int base_to_dec(char c) {
+unsigned int base_to_dec(char c) {
     if (c - '0' <= 10) {
-        return (int)(c - '0');
+        return (unsigned int)(c - '0');
     } else {
-        return 10 + (int)(c - 'a');
+        return 10 + (unsigned int)(c - 'a');
     }
 }
 
-char dec_to_base(int num, int base) {
+char dec_to_base(unsigned int num, unsigned int base) {
     int digit = num%base;
     if (digit >= 10) {
         return 'a' + (digit - 10);
@@ -34,18 +34,18 @@ char dec_to_base(int num, int base) {
     return (char)digit;
 }
 
-void print_dec_in_base_rec(int num, int base) {
+void print_dec_in_base_rec(unsigned int num, unsigned int base) {
     char c;
     if (num == 0) {
         return;
     }
     c = dec_to_base(num, base);
     print_dec_in_base_rec(num / base, base);
-    printf("%d", c);
+    printf("%u", c);
 }
 
-int get_dec_input(int base) {
-    int num = 0;
+unsigned int get_dec_input(unsigned int base) {
+    unsigned int num = 0;
     char c;
     do {
         c = getchar();
@@ -77,7 +77,7 @@ int main() {
         assert((16 >= b) && (b >= 2));
     }
 
-    printf("> Please enter a number in base %d:\n", a);
+    printf("> Please enter a number in base %u:\n", a);
     getchar();
     num = get_dec_input(a);
 
@@ -87,6 +87,6 @@ int main() {
     } else {
         print_dec_in_base_rec(num, b);
     }
-
+    printf("\n");
     return 0;
 }
