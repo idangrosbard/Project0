@@ -3,9 +3,9 @@
 #include <math.h>
 
 int verify_base(char c, int base) {
-    if (c - '0' > base) {
+    if ((c - '0' > base) || (c - '0' < 0)) {
         if (base > 10) {
-            if (c - 'a' > base - 10) {
+            if ((c - 'a' > base - 10) || (c - 'a' < 0)) {
                 printf("> Invalid number!");
                 return 0;
             }
@@ -49,7 +49,7 @@ int get_dec_input(int base) {
     char c;
     do {
         c = getchar();
-        if ((c != '\n')&& (c != EOF)) {
+        if ((c != '\n') && (c != EOF)) {
             assert(verify_base(c, base) == 1);
             num *= base;
             num += base_to_dec(c);
