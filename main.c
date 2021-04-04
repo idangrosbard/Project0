@@ -52,7 +52,7 @@ int get_dec_input(int base) {
         if ((c != '\n')&& (c != EOF)) {
             assert(verify_base(c, base) == 1);
             num *= base;
-            num += base_to_dec(c, base);
+            num += base_to_dec(c);
         }
     } while ((c != '\n')&& (c != EOF));
 
