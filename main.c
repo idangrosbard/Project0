@@ -18,7 +18,7 @@ int verify_base(char c, int base) {
     return 1;
 }
 
-int base_to_dec(char c, int base) {
+int base_to_dec(char c) {
     if (c - '0' <= 10) {
         return (int)(c - '0');
     } else {
@@ -35,10 +35,11 @@ char dec_to_base(int num, int base) {
 }
 
 void print_dec_in_base_rec(int num, int base) {
+    char c;
     if (num == 0) {
         return;
     }
-    char c = dec_to_base(num, base);
+    c = dec_to_base(num, base);
     print_dec_in_base_rec(num / base, base);
     printf("%d", c);
 }
@@ -63,14 +64,14 @@ int main() {
     unsigned int a = 0, b = 0, num = 0;
 
     printf("Please enter the numbers base:\n");
-    scanf("%d", &a);
+    scanf("%u", &a);
     if (a > 16 || a < 2) {
         printf("Invalid input base");
         assert((16 >= a) && (a >= 2));
     }
 
     printf("Please enter the desired base:\n");
-    scanf("%d", &b);
+    scanf("%u", &b);
     if (b > 16 || b < 2) {
         printf("Invalid desired base");
         assert((16 >= b) && (b >= 2));
