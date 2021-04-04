@@ -6,12 +6,12 @@ int verify_base(char c, int base) {
     if (c - '0' > base) {
         if (base > 10) {
             if (c - 'a' > base - 10) {
-                printf("Invalid number!");
+                printf("> Invalid number!");
                 return 0;
             }
         }
         else {
-            printf("Invalid number!");
+            printf("> Invalid number!");
             return 0;
         }
     }
@@ -63,27 +63,27 @@ int get_dec_input(int base) {
 int main() {
     unsigned int a = 0, b = 0, num = 0;
 
-    printf("Please enter the numbers base:\n");
+    printf("> Please enter the numbers base:\n");
     scanf("%u", &a);
     if (a > 16 || a < 2) {
-        printf("Invalid input base");
+        printf("> Invalid input base");
         assert((16 >= a) && (a >= 2));
     }
 
-    printf("Please enter the desired base:\n");
+    printf("> Please enter the desired base:\n");
     scanf("%u", &b);
     if (b > 16 || b < 2) {
-        printf("Invalid desired base");
+        printf("> Invalid desired base");
         assert((16 >= b) && (b >= 2));
     }
 
-    printf("Please enter a number in base %d:\n", a);
+    printf("> Please enter a number in base %d:\n", a);
     getchar();
     num = get_dec_input(a);
 
-    printf("The result is: ");
+    printf("> The result is: ");
     if (num == 0) {
-        printf("%d", num);
+        printf("%u", num);
     } else {
         print_dec_in_base_rec(num, b);
     }
