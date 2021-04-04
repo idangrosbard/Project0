@@ -1,0 +1,3 @@
+C:/Users/Tomer/CLionProjects/Base_Transform/cmake-build-debug/CMakeFiles/Base_Transform.dir
+C:/Users/Tomer/CLionProjects/Base_Transform/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Tomer/CLionProjects/Base_Transform/cmake-build-debug/CMakeFiles/rebuild_cache.dir
